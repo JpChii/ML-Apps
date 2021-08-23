@@ -55,14 +55,14 @@ def process_path(image_path: str, class_names: np.ndarray, label_mode: str = "on
     logger.info("{img_size} image size is used for preprocessing")
 
     # Load the image and resie it to target IMG_SIZE
-    img = tf.image.read_file(image_path)
+    img = tf.io.read_file(image_path)
     img = tf.image.decode_jpeg(img)
     img = tf.image.resize(img, [img_size, img_size])
 
     # Encoding the label
-    parts = tf.string.split(image_path, os.path.sep)
+    parts = image_path.split(os.path.sep)
     # Getting the label name from splitted image path
-    label_name = parts[4]
+    label_name = parts[-2] # If the standard directory structure is followed class/file then -2 index will always be the class name
     if label_mode == "onehot":
         one_hot = label_name == class_names
         label = tf.one_hot(tf.argmax(one_hot), 29) # 29 is the depth becuase the dataset has 29 classes
