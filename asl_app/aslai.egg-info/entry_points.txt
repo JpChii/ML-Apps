@@ -1,0 +1,3 @@
+[console_scripts]
+aslai = asl_app.cli:app
+

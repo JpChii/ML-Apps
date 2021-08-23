@@ -1,0 +1,18 @@
+INFO 2021-08-09 18:16:53,335 [data.py:create_dataset:89]
+The data directory is: /Users/jayaprakashsivagami/Desktop/Tech/ML/ML-Apps/asl_app/data
+
+INFO 2021-08-09 18:16:53,354 [data.py:create_dataset:90]
+Train data percent used for this iteration is: 0.6
+
+INFO 2021-08-09 18:16:53,359 [data.py:create_dataset:94]
+Train directory is: /Users/jayaprakashsivagami/Desktop/Tech/ML/ML-Apps/asl_app/data/train
+
+INFO 2021-08-09 18:16:53,369 [data.py:create_dataset:98]
+Train images count: 0
+
+INFO 2021-08-09 18:16:53,374 [data.py:create_dataset:102]
+Class names in the dataset is: []
+
+INFO 2021-08-09 18:31:37,279 [data.py:unzip_data:28]
+Unzipping dataset to directory
+

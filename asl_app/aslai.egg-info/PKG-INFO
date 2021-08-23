@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: aslai
+Version: 0.1
+Summary: American sign language image recogonition mae with ML
+Home-page: https://jpchii.herokuapp.com
+Author: Jayaprakash Chinnaraji
+Author-email: jpchinnaraji@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: machine-learning,artificial-intelligence,tensorflow
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Provides-Extra: test
+Provides-Extra: dev
+Provides-Extra: docs

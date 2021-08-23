@@ -1,0 +1,8 @@
+README.md
+setup.py
+aslai.egg-info/PKG-INFO
+aslai.egg-info/SOURCES.txt
+aslai.egg-info/dependency_links.txt
+aslai.egg-info/entry_points.txt
+aslai.egg-info/requires.txt
+aslai.egg-info/top_level.txt
