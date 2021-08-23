@@ -7,22 +7,24 @@ import zipfile
 from aslai.config import BASE_DIR, LOGS_DIR, DATA_DIR, logger
 from pathlib import Path
 import numpy as np
+import string
 
 # Function to unzip data
-def unzip_data(data_dir: Path):
+def unzip_data(data_dir: Path, zip_name: string):
     """
-    Function to unzip dataset artifact
+    Function to unzip a zipped dataset
 
     Args:
         data_dir (Path): Posix path where the data resides
+        zip_name (String): String name of the zipped dataset
 
     Returns:
-        Unzipped dataset in DATA_DIR
+        Unzipped dataset in data_dir
     """
 
     # Unzipping the zipped artifact
     # Declaring the dataset name
-    filename = str(data_dir) + "/data.zip"
+    filename = str(data_dir) + zip_name
     # Initializing zipref instance
     zip_ref = zipfile.ZipFile(filename, "r")
     logger.info("Unzipping dataset to directory")
