@@ -8,6 +8,9 @@ from aslai.config import BASE_DIR, LOGS_DIR, DATA_DIR, logger
 from pathlib import Path
 import numpy as np
 import string
+import random
+from tqdm import tqdm
+
 
 # Function to unzip data
 def unzip_data(data_dir: Path, zip_name: string):
@@ -35,8 +38,57 @@ def unzip_data(data_dir: Path, zip_name: string):
     # Removing __MACOSX if present in data directory
     if "__MACOSX" in os.listdir(data_dir):
         shutil.rmtree(str(data_dir) + "/__MACOSX/")
+
+# Function to get percentage of images        
+def get_percent_images(target_dir, new_dir, class_names, sample_amount=0.1, random_state=42):
+  """
+  Function to get `sample_amount` percentage of images from the entire dataset
+
+  Args:
+      target_dir: target directory of the images
+      new_dir: new directory to copy images to
+      sample_amount: percent of images copied to new_dir
+      random_state: random state variable
+  """
+
+  images = [{label: os.listdir(target_dir + "/" + label)} for label in class_names]
+
+  for i in images:
+    for k, v in i.items():
+      # How many images to sample?
+      sample_number = round(int(len(v) * sample_amount))
+      print(f"There are {len(v)} total images in {target_dir + k}")
+      print(f"{sample_number} images are copied to the new_directory")
+
+      # Creating target directory
+      new_target_dir = new_dir + "/" + k
+      print(f"Making dir: {new_target_dir}")
+      os.makedirs(new_target_dir, exist_ok=True)
+
+      # Getting random sample images
+      random_images = random.sample(v, sample_number)
+
+      # Keep track of images moved
+      images_moved = []
+
+      # Make new directory for each label
+      new_target_dir = new_dir + "/" + k
+      print(f"Making new dir: {new_target_dir}")
+      os.makedirs(new_target_dir, exist_ok=True)
+
+      # Copying images
+      for filename in tqdm(random_images):
+        og_path = target_dir + "/" + k + "/" + filename
+        new_path = new_target_dir + "/" + filename
+
+        shutil.copy2(og_path, new_path)
+        images_moved.append(new_path)
+
+      # Make sure number of images moved to new path
+      assert len(os.listdir(new_target_dir)) == sample_number
+      assert len(images_moved) == sample_number
         
-# Funnction to get label name
+# Function to get label name
 def get_label(filepath: str) -> str:
   """
   Function to get label name from filepath
