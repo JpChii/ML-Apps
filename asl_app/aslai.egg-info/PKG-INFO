@@ -6,7 +6,6 @@ Home-page: https://jpchii.herokuapp.com
 Author: Jayaprakash Chinnaraji
 Author-email: jpchinnaraji@gmail.com
 License: MIT
-Description: UNKNOWN
 Keywords: machine-learning,artificial-intelligence,tensorflow
 Platform: UNKNOWN
 Classifier: Development Status :: 1 - Alpha
@@ -17,3 +16,6 @@ Requires-Python: >=3.6
 Provides-Extra: test
 Provides-Extra: dev
 Provides-Extra: docs
+
+UNKNOWN
+
