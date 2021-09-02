@@ -2,6 +2,9 @@
 
 import tensorflow as tf
 from tensorflow.keras import applications
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def create_base_model(include_top: bool = False, trainable: bool = True, layers_to_tune: int = 30) -> tf.keras.Model:
     """
